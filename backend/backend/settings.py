@@ -15,12 +15,7 @@ SECRET_KEY = 'uf+vcx4u122-%ul&ov-20-_7m+1%-sy^!l1o6@qb4z8#gbvvu7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    '51.250.103.111',
-    'backend'
-]
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['*']
 

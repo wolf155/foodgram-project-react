@@ -8,7 +8,8 @@ from rest_framework.views import APIView
 
 from api.pagination import CustomPageNumberPagination  # isort:skip
 from .models import Follow, User  # isort:skip
-from .serializers import CustomUserSerializer, FollowSerializer
+from .serializers import (CustomUserSerializer,  # isort:skip
+                          FollowSerializer)  # isort:skip
 
 
 class CustomUserViewSet(UserViewSet):

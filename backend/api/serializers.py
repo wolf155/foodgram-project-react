@@ -1,7 +1,8 @@
-from drf_extra_fields.fields import Base64ImageField
+from drf_extra_fields.fields import Base64ImageField  # isort:skip
 from rest_framework import serializers  # isort:skip
 
-from recipes.models import (Favorite, Ingredient, IngredientAmount, Recipe,  # isort:skip
+from recipes.models import (Favorite, Ingredient,  # isort:skip
+                            IngredientAmount, Recipe,  # isort:skip
                             ShoppingCart, Tag)  # isort:skip
 from users.serializers import CustomUserSerializer  # isort:skip
 

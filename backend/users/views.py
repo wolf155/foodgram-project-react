@@ -6,8 +6,8 @@ from rest_framework.permissions import (IsAuthenticated,
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.pagination import CustomPageNumberPagination
-from .models import Follow, User
+from api.pagination import CustomPageNumberPagination  # isort:skip
+from .models import Follow, User  # isort:skip
 from .serializers import CustomUserSerializer, FollowSerializer
 
 

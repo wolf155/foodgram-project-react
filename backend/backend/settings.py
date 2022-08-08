@@ -3,7 +3,6 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-
 env_path = Path('../infra') / '.env'
 load_dotenv(dotenv_path=env_path)
 
@@ -12,7 +11,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'uf+vcx4u122-%ul&ov-20-_7m+1%-sy^!l1o6@qb4z8#gbvvu7'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']

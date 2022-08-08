@@ -85,8 +85,7 @@ class RecipeSerializer(serializers.ModelSerializer):
             'image',
             'name',
             'text',
-            'cooking_time'
-            )
+            'cooking_time')
 
     def validate(self, data):
         ingredients = data['ingredients']

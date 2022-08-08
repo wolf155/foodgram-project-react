@@ -11,8 +11,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
 from recipes.models import (Favorite, Ingredient, IngredientAmount, Recipe,
-                            ShoppingCart, Tag)
-from .filters import IngredientSearchFilter, RecipeFilter
+                            ShoppingCart, Tag)  # isort:skip
+from .filters import IngredientSearchFilter, RecipeFilter  # isort:skip
 from .pagination import CustomPageNumberPagination
 from .permissions import IsAuthorOrReadOnly
 from .serializers import (FavoriteSerializer, IngredientSerializer,

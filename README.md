@@ -1,4 +1,4 @@
-![example workflow](https://github.com/wolf155/foodgram-project-react/actions/workflows/main.yml/badge.svg)
+![main_workflow](https://github.com/wolf155/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ### Проект доступен по адресу - http://51.250.103.111/
 

@@ -94,48 +94,50 @@ class RecipeSerializer(serializers.ModelSerializer):
         for ingredient in ingredients:
             ingredient_id = ingredient['id']
             if ingredient_id in ingredients_list:
-                raise serializers.ValidationError({
-                    'ошибка': 'Ингредиенты должны быть уникальными'
-                })
+                raise serializers.ValidationError(
+                    'Ингредиенты должны быть уникальными'
+                )
             ingredients_list.append(ingredient_id)
             amount = ingredient['amount']
             if int(amount) <= 0:
-                raise serializers.ValidationError({
-                    'ошибка': 'Количество ингредиента должно быть больше нуля!'
-                })
+                raise serializers.ValidationError(
+                    'Количество ингредиента должно быть больше нуля!'
+                )
 
         tags = data['tags']
         if not tags:
-            raise serializers.ValidationError({
-                'ошибка': 'Нужно выбрать хотя бы один тэг!'
-            })
+            raise serializers.ValidationError(
+                'Нужно выбрать хотя бы один тэг!'
+            )
         tags_list = []
         for tag in tags:
             if tag in tags_list:
-                raise serializers.ValidationError({
-                    'ошибка': 'Тэги должны быть уникальными!'
-                })
+                raise serializers.ValidationError(
+                    'Тэги должны быть уникальными!'
+                )
             tags_list.append(tag)
 
         cooking_time = data['cooking_time']
         if int(cooking_time) <= 0:
-            raise serializers.ValidationError({
-                'ошибка': 'Время приготовления должно быть больше 0!'
-            })
+            raise serializers.ValidationError(
+                'Время приготовления должно быть больше 0!'
+            )
         return data
 
     @staticmethod
     def create_ingredients(ingredients, recipe):
-        for ingredient in ingredients:
-            IngredientAmount.objects.create(
-                recipe=recipe, ingredient=ingredient['id'],
+        ingredients_in_recipe = [
+            IngredientAmount(
+                ingredient=ingredient['id'],
+                recipe=recipe,
                 amount=ingredient['amount']
-            )
+            ) for ingredient in ingredients
+        ]
+        IngredientAmount.objects.bulk_create(ingredients_in_recipe)
 
     @staticmethod
     def create_tags(tags, recipe):
-        for tag in tags:
-            recipe.tags.add(tag)
+        recipe.tags.set(tags)
 
     def create(self, validated_data):
         author = self.context.get('request').user

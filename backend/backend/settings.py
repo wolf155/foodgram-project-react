@@ -8,8 +8,8 @@ load_dotenv(dotenv_path=env_path)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 SECRET_KEY = 'uf+vcx4u122-%ul&ov-20-_7m+1%-sy^!l1o6@qb4z8#gbvvu7'
+#SECRET_KEY = os.getenv('SECRET_KEY', default='123')
 
 DEBUG = False
 
@@ -17,8 +17,6 @@ ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = ['*']
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -73,10 +71,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/api/.*$'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 if DEBUG:
     DATABASES = {
         'default': {
@@ -96,10 +90,6 @@ else:
         }
     }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -115,13 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LANGUAGE_CODE = 'ru'
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
